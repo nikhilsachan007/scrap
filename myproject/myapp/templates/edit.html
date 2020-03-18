@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>edit</title>
+     {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="/std">scrapMe</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/view">view</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<form method="post" class="post-form" action="/update/{{ students.id }}"> 
+  <input type="hidden" name="id" id="id" required maxlength="20" value="{{ students.id }}"/>
+
+
+        {% csrf_token %}  
+
+                <div class ="col-sm-4">
+                <h3>Enter details </h3>
+                         <br>
+       <div>
+                <h3>Keywords/url </h3>
+                <input type="text" name="Sid" value="{{ students.keywords }}">
+               
+    </div>
+                <br>
+       <div>
+                <h3>Size </h3>
+                 <input type="text" name="fname" value="{{ students.Size }}">
+               
+    </div>
+<div>
+                <h3>Max urls </h3>
+                 <input type="text" name="lname" value="{{ students.max_urls }}">
+               
+    </div> 
+
+
+   <button type="submit" class="btn btn-primary">Save</button>  </div></div>
+</form>  
+</body>
+</html>
+
